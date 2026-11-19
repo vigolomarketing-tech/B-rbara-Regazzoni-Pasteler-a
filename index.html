@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pastelería en Longchamps | Bárbara Regazzoni</title>
+<meta name="description" content="Pastelería de autor en Longchamps: tortas, croissants, cookies y panes por encargo. Armá tu pedido y envialo por WhatsApp. Envío gratis por la zona.">
+<meta name="theme-color" content="#141110">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bárbara Regazzoni · Pastelería de autor en Longchamps">
+<meta property="og:description" content="Tortas, laminados, cookies y panes por encargo. Armá tu pedido online y envialo por WhatsApp.">
+<meta property="og:image" content="img/og.jpg">
+<meta property="og:url" content="">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Bakery","name":"Bárbara Regazzoni Pastelería","description":"Pastelería de autor por encargo en Longchamps.","address":{"@type":"PostalAddress","addressLocality":"Longchamps","addressRegion":"Buenos Aires","addressCountry":"AR"},"sameAs":["https://instagram.com/barbara.regazzoni.pasteleria"],"servesCuisine":"Pastelería","image":"img/og.jpg"}
+</script>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+
+<header class="nav" id="top">
+  <a class="brand" href="#top" aria-label="Bárbara Regazzoni, ir al inicio">
+    <img src="img/logo.webp" width="44" height="44" alt="Logo de Bárbara Regazzoni">
+    <span>Bárbara Regazzoni</span>
+  </a>
+  <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false"><i></i><i></i></button>
+  <nav id="menu" aria-label="Principal">
+    <a href="#imperdibles">Imperdibles</a>
+    <a href="#carta">Carta</a>
+    <a href="#encargos">Tortas a medida</a>
+    <a href="#galeria">Galería</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+  <button class="cart-btn" id="cartOpen" aria-label="Ver mi pedido">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+    <b id="cartCount" hidden>0</b>
+  </button>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-text">
+    <p class="eyebrow rv">Pastelería de autor · Longchamps</p>
+    <h1 class="rv">Bárbara<br>Regazzoni</h1>
+    <p class="lead rv">Tortas, laminados, cookies y panes hechos por encargo, con técnica, manteca de verdad y el tiempo que cada receta necesita.</p>
+    <div class="cta rv">
+      <a class="btn btn-red" href="#carta">Hacer un pedido</a>
+      <a class="btn btn-ghost" id="waHero" href="#" target="_blank" rel="noopener">Escribime por WhatsApp</a>
+    </div>
+  </div>
+  <figure class="hero-img rv">
+    <img src="img/hero-croissant.webp" width="1000" height="1279" alt="Croissant dorado recién horneado sostenido en la mano" fetchpriority="high">
+  </figure>
+</section>
+
+<ul class="strip" aria-label="Cómo trabajamos">
+  <li>Todo por encargo</li>
+  <li>Opciones sin gluten</li>
+  <li>Envío gratis por la zona</li>
+  <li>Envíos a Provincia y CABA</li>
+</ul>
+
+<section class="sec" id="imperdibles">
+  <header class="sec-head rv">
+    <p class="eyebrow dark">Lo más pedido</p>
+    <h2>Imperdibles de la casa</h2>
+  </header>
+  <div class="feat" id="featGrid"></div>
+</section>
+
+<section class="sec sec-paper" id="carta">
+  <header class="sec-head rv">
+    <p class="eyebrow dark">La carta</p>
+    <h2>Elegí, sumá y mandá tu pedido</h2>
+    <p class="sub">Precios actualizados. Tocá <b>+</b> para agregar y al final enviás todo junto por WhatsApp.</p>
+  </header>
+  <div class="tabs" id="tabs" role="tablist" aria-label="Categorías"></div>
+  <ul class="menu" id="menuList"></ul>
+  <p class="note">Los precios pueden variar. Opciones sin gluten identificadas con <span class="tag">Sin gluten</span>. Elaboradas en cocina que también trabaja con gluten.</p>
+</section>
+
+<section class="sec sec-dark" id="encargos">
+  <div class="split">
+    <header class="sec-head left rv">
+      <p class="eyebrow">A tu medida</p>
+      <h2>Tu torta, tu mesa dulce, tu idea</h2>
+      <p class="sub">Cumpleaños, casamientos, regalos corporativos. Contame qué tenés en mente y te respondo con una propuesta y presupuesto.</p>
+      <p class="sub small" id="anticipo"></p>
+    </header>
+    <form class="form rv" id="encForm" novalidate>
+      <label>Tu nombre<input name="nombre" required autocomplete="name"></label>
+      <label>¿Qué necesitás?<select name="tipo" id="encTipo"></select></label>
+      <div class="row2">
+        <label>Porciones<input name="porciones" type="number" min="1" inputmode="numeric" placeholder="Ej: 12"></label>
+        <label>Fecha del evento<input name="fecha" type="date" id="encFecha" required></label>
+      </div>
+      <label>Sabores o relleno<input name="sabor" placeholder="Ej: brownie, dulce de leche y frutos rojos"></label>
+      <label>Dedicatoria o detalles<textarea name="detalle" rows="3" placeholder="Mensaje, decoración, alergias..."></textarea></label>
+      <button class="btn btn-red" type="submit">Pedir presupuesto por WhatsApp</button>
+      <p class="err" id="encErr" role="alert" hidden></p>
+    </form>
+  </div>
+</section>
+
+<section class="sec" id="proceso">
+  <header class="sec-head rv">
+    <p class="eyebrow dark">Cómo pedir</p>
+    <h2>Simple, como tiene que ser</h2>
+  </header>
+  <ol class="steps">
+    <li class="rv"><span>01</span><h3>Elegí</h3><p>Armá tu pedido desde la carta o contanos tu idea en el formulario.</p></li>
+    <li class="rv"><span>02</span><h3>Confirmá por WhatsApp</h3><p>Te llega el pedido listo, lo confirmamos y coordinamos fecha y pago.</p></li>
+    <li class="rv"><span>03</span><h3>Recibilo fresco</h3><p>Retirás o te lo llevamos. Todo se hornea para tu fecha, nada es stock.</p></li>
+  </ol>
+</section>
+
+<section class="sec sec-paper" id="galeria">
+  <header class="sec-head rv">
+    <p class="eyebrow dark">Del horno a tu mesa</p>
+    <h2>Un vistazo al taller</h2>
+  </header>
+  <div class="gallery" id="gallery"></div>
+  <p class="center"><a class="btn btn-ghost-dark" id="igLink" href="#" target="_blank" rel="noopener">Ver más en Instagram</a></p>
+</section>
+
+<section class="sec" id="contacto">
+  <div class="split">
+    <header class="sec-head left rv">
+      <p class="eyebrow dark">Contacto y entregas</p>
+      <h2>Estamos en Longchamps</h2>
+      <ul class="info">
+        <li><b>Envío gratis</b> por la zona de Longchamps.</li>
+        <li><b>Provincia y CABA</b> con recargo, se coordina por WhatsApp.</li>
+        <li><b>Todo por encargo:</b> pedí con anticipación para asegurar tu fecha.</li>
+      </ul>
+      <p class="cta"><a class="btn btn-red" id="waContact" href="#" target="_blank" rel="noopener">Escribime por WhatsApp</a>
+      <a class="btn btn-ghost-dark" id="mapLink" href="#" target="_blank" rel="noopener">Cómo llegar</a></p>
+    </header>
+    <div class="map rv"><iframe id="mapFrame" title="Mapa de Longchamps, Buenos Aires" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <img src="img/logo.webp" width="64" height="64" alt="" loading="lazy">
+  <p class="foot-name">Bárbara Regazzoni · Pastelería de autor</p>
+  <p><a id="igFoot" href="#" target="_blank" rel="noopener"></a> · Longchamps, Buenos Aires</p>
+  <p class="foot-small">© <span id="year"></span> · Web hecha por <a href="https://vigolowebstudio.com" target="_blank" rel="noopener">Vigolo Web Studio</a> · <a href="admin.html">Panel del dueño (demo)</a></p>
+</footer>
+
+<a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.38A9.9 9.9 0 1 0 12.04 2zm5.8 14.1c-.25.7-1.45 1.33-2 1.4-.5.07-1.14.1-1.84-.12a16.7 16.7 0 0 1-1.67-.62c-2.94-1.27-4.86-4.23-5-4.43-.15-.2-1.2-1.6-1.2-3.04 0-1.45.76-2.16 1.03-2.46.27-.3.6-.37.8-.37h.57c.18 0 .43-.07.67.52.25.6.85 2.07.92 2.22.08.15.13.32.03.52-.1.2-.15.32-.3.5-.15.17-.32.38-.45.5-.15.15-.3.31-.13.6.17.3.77 1.27 1.65 2.06 1.13 1 2.08 1.32 2.38 1.47.3.15.47.12.65-.07.17-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.27.1 1.72.82 2.02.97.3.15.5.22.57.35.07.12.07.72-.18 1.42z"/></svg>
+</a>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="cart" id="cart" aria-label="Mi pedido" aria-hidden="true">
+  <header><h2>Mi pedido</h2><button id="cartClose" aria-label="Cerrar pedido">✕</button></header>
+  <div class="cart-body">
+    <ul id="cartList"></ul>
+    <p class="empty" id="cartEmpty">Todavía no sumaste nada. Elegí algo de la carta.</p>
+    <form id="ckForm" novalidate hidden>
+      <label>Tu nombre<input name="nombre" required autocomplete="name"></label>
+      <fieldset><legend>Entrega</legend>
+        <label class="radio"><input type="radio" name="entrega" value="Retiro" checked> Retiro</label>
+        <label class="radio"><input type="radio" name="entrega" value="Envío a domicilio"> Envío a domicilio</label>
+      </fieldset>
+      <label id="dirWrap" hidden>Dirección<input name="direccion" autocomplete="street-address" placeholder="Calle, número, localidad"></label>
+      <label>Fecha de entrega<input name="fecha" type="date" id="ckFecha" required></label>
+      <label>Forma de pago<select name="pago" id="ckPago"></select></label>
+      <label>Aclaraciones<textarea name="notas" rows="2" placeholder="Dedicatoria, alergias, horario..."></textarea></label>
+      <p class="err" id="ckErr" role="alert" hidden></p>
+    </form>
+  </div>
+  <footer id="cartFoot" hidden>
+    <div class="total"><span>Total</span><b id="cartTotal"></b></div>
+    <button class="btn btn-red" id="sendOrder" type="button">Enviar pedido por WhatsApp</button>
+    <p class="small" id="envioNota"></p>
+  </footer>
+</aside>
+
+<dialog id="lb"><img alt=""><button aria-label="Cerrar foto">✕</button></dialog>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
