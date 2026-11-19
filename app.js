@@ -36,8 +36,12 @@
 
   // ---------- Menú móvil ----------
   const burger = $("#burger"), menu = $("#menu");
-  burger.addEventListener("click", () => { const o = menu.classList.toggle("open"); burger.setAttribute("aria-expanded", o); });
-  menu.addEventListener("click", e => { if (e.target.closest("a")) { menu.classList.remove("open"); burger.setAttribute("aria-expanded", false); } });
+  const nav = $(".nav");
+  const setMenu = o => { menu.classList.toggle("open", o); nav.classList.toggle("menu-open", o); burger.setAttribute("aria-expanded", o); };
+  burger.addEventListener("click", () => setMenu(!menu.classList.contains("open")));
+  menu.addEventListener("click", e => { if (e.target.closest("a")) setMenu(false); });
+  const onScroll = () => nav.classList.toggle("solid", scrollY > 40);
+  addEventListener("scroll", onScroll, { passive: true }); onScroll();
 
   // ---------- Carta ----------
   let cat = C.categorias[0];
@@ -53,6 +57,7 @@
           <div class="item-name">${esc(p.nombre)}${p.sinGluten ? '<span class="tag">Sin gluten</span>' : ""}${p.disponible ? "" : '<span class="tag">Agotado</span>'}</div>
           ${p.desc ? `<div class="item-desc">${esc(p.desc)}</div>` : ""}
         </div>
+        <i class="dots" aria-hidden="true"></i>
         <div class="opts">${p.opciones.map((o, i) => `<div class="opt">${o.etiqueta ? `<span class="lbl">${esc(o.etiqueta)}</span>` : ""}<span class="price">${fmt(o.precio)}</span>${addBtn(p, i)}</div>`).join("")}</div>
       </li>`).join("");
   }
@@ -61,14 +66,14 @@
   // ---------- Imperdibles ----------
   $("#featGrid").innerHTML = C.destacados.map(id => byId[id]).filter(Boolean).map(p => `
     <article class="card rv">
-      <img src="${esc(p.foto)}" width="640" height="640" alt="${esc(p.nombre)}" loading="lazy">
+      <div class="ph"><img src="${esc(p.foto)}" width="640" height="640" alt="${esc(p.nombre)}" loading="lazy"></div>
       <div class="card-body"><h3>${esc(p.nombre)}</h3><p>${esc(p.desc || "")}</p>
         <div class="card-foot"><span class="price">${fmt(p.opciones[0].precio)}</span>${addBtn(p, 0)}</div></div>
     </article>`).join("") + `
     <article class="card custom rv">
-      <img src="img/gal-brownie.webp" width="900" height="899" alt="Torta de brownie con frutillas, Oreo y Kit Kat" loading="lazy">
+      <div class="ph"><img src="img/gal-brownie.webp" width="900" height="899" alt="Torta de brownie con frutillas, Oreo y Kit Kat" loading="lazy"></div>
       <div class="card-body"><h3>Tortas a tu medida</h3><p>Brownies, tiramisú, minis y mesas dulces para tu celebración.</p>
-        <div class="card-foot"><a class="btn btn-red" href="#encargos">Pedir presupuesto</a></div></div>
+        <div class="card-foot"><a class="btn btn-ghost-dark" href="#encargos">Pedir presupuesto</a></div></div>
     </article>`;
 
   // ---------- Galería ----------

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pastelería en Longchamps | Bárbara Regazzoni</title>
 <meta name="description" content="Pastelería de autor en Longchamps: tortas, croissants, cookies y panes por encargo. Armá tu pedido y envialo por WhatsApp. Envío gratis por la zona.">
-<meta name="theme-color" content="#141110">
+<meta name="theme-color" content="#15110f">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Bárbara Regazzoni · Pastelería de autor en Longchamps">
 <meta property="og:description" content="Tortas, laminados, cookies y panes por encargo. Armá tu pedido online y envialo por WhatsApp.">
@@ -13,9 +13,8 @@
 <meta property="og:url" content="">
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/cormorant-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Bakery","name":"Bárbara Regazzoni Pastelería","description":"Pastelería de autor por encargo en Longchamps.","address":{"@type":"PostalAddress","addressLocality":"Longchamps","addressRegion":"Buenos Aires","addressCountry":"AR"},"sameAs":["https://instagram.com/barbara.regazzoni.pasteleria"],"servesCuisine":"Pastelería","image":"img/og.jpg"}
@@ -33,63 +32,79 @@
   <nav id="menu" aria-label="Principal">
     <a href="#imperdibles">Imperdibles</a>
     <a href="#carta">Carta</a>
-    <a href="#encargos">Tortas a medida</a>
+    <a href="#encargos">A medida</a>
     <a href="#galeria">Galería</a>
     <a href="#contacto">Contacto</a>
   </nav>
   <button class="cart-btn" id="cartOpen" aria-label="Ver mi pedido">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
     <b id="cartCount" hidden>0</b>
   </button>
 </header>
 
 <main>
 <section class="hero">
+  <figure class="hero-img">
+    <img src="img/hero-croissant.webp" width="1000" height="1279" alt="Croissant dorado recién horneado sostenido en la mano" fetchpriority="high">
+  </figure>
   <div class="hero-text">
-    <p class="eyebrow rv">Pastelería de autor · Longchamps</p>
-    <h1 class="rv">Bárbara<br>Regazzoni</h1>
+    <p class="eyebrow rv">Pastelería de autor</p>
+    <h1 class="rv">Bárbara <em>Regazzoni</em></h1>
     <p class="lead rv">Tortas, laminados, cookies y panes hechos por encargo, con técnica, manteca de verdad y el tiempo que cada receta necesita.</p>
     <div class="cta rv">
       <a class="btn btn-red" href="#carta">Hacer un pedido</a>
-      <a class="btn btn-ghost" id="waHero" href="#" target="_blank" rel="noopener">Escribime por WhatsApp</a>
+      <a class="btn btn-ghost" id="waHero" href="#" target="_blank" rel="noopener">Escribime</a>
     </div>
+    <p class="hero-foot rv"><span>Longchamps</span><span>Buenos Aires</span><span>Por encargo</span></p>
   </div>
-  <figure class="hero-img rv">
-    <img src="img/hero-croissant.webp" width="1000" height="1279" alt="Croissant dorado recién horneado sostenido en la mano" fetchpriority="high">
-  </figure>
 </section>
 
 <ul class="strip" aria-label="Cómo trabajamos">
   <li>Todo por encargo</li>
   <li>Opciones sin gluten</li>
   <li>Envío gratis por la zona</li>
-  <li>Envíos a Provincia y CABA</li>
+  <li>Provincia y CABA</li>
 </ul>
 
 <section class="sec" id="imperdibles">
   <header class="sec-head rv">
-    <p class="eyebrow dark">Lo más pedido</p>
-    <h2>Imperdibles de la casa</h2>
+    <p class="eyebrow dark"><span>01</span>Lo más pedido</p>
+    <h2>Imperdibles <em>de la casa</em></h2>
   </header>
   <div class="feat" id="featGrid"></div>
 </section>
 
-<section class="sec sec-paper" id="carta">
+<section class="sec sec-cream manifesto">
+  <div class="split">
+    <div class="m-text rv">
+      <p class="eyebrow dark"><span>02</span>La casa</p>
+      <h2>Cada pieza se hace <em>para vos</em></h2>
+      <p class="sub">Nada es stock. Laminados que se trabajan con paciencia, tortas con relleno generoso y panes de masa madre cuidada. Hornear por encargo es la única forma de entregar algo recién hecho.</p>
+      <p class="sign"><img src="img/logo.webp" width="96" height="96" alt="" loading="lazy"></p>
+    </div>
+    <div class="m-imgs rv">
+      <img src="img/gal-tiramisu.webp" width="900" height="899" alt="Tiramisú con borde de vainillas y cacao" loading="lazy">
+      <img src="img/gal-minis.webp" width="900" height="899" alt="Caja de mini tartas, mini lemon pies y mini alfajores" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="carta">
   <header class="sec-head rv">
-    <p class="eyebrow dark">La carta</p>
-    <h2>Elegí, sumá y mandá tu pedido</h2>
-    <p class="sub">Precios actualizados. Tocá <b>+</b> para agregar y al final enviás todo junto por WhatsApp.</p>
+    <p class="eyebrow dark"><span>03</span>La carta</p>
+    <h2>Elegí, sumá <em>y pedí</em></h2>
+    <p class="sub">Tocá <b>+</b> para agregar. Al final enviás todo junto por WhatsApp.</p>
   </header>
   <div class="tabs" id="tabs" role="tablist" aria-label="Categorías"></div>
   <ul class="menu" id="menuList"></ul>
-  <p class="note">Los precios pueden variar. Opciones sin gluten identificadas con <span class="tag">Sin gluten</span>. Elaboradas en cocina que también trabaja con gluten.</p>
+  <p class="note">Los precios pueden variar. Las opciones <span class="tag">Sin gluten</span> se elaboran en una cocina que también trabaja con gluten.</p>
 </section>
 
 <section class="sec sec-dark" id="encargos">
   <div class="split">
     <header class="sec-head left rv">
-      <p class="eyebrow">A tu medida</p>
-      <h2>Tu torta, tu mesa dulce, tu idea</h2>
+      <p class="eyebrow"><span>04</span>A medida</p>
+      <h2>Tu torta, tu mesa dulce, <em>tu idea</em></h2>
       <p class="sub">Cumpleaños, casamientos, regalos corporativos. Contame qué tenés en mente y te respondo con una propuesta y presupuesto.</p>
       <p class="sub small" id="anticipo"></p>
     </header>
@@ -102,7 +117,7 @@
       </div>
       <label>Sabores o relleno<input name="sabor" placeholder="Ej: brownie, dulce de leche y frutos rojos"></label>
       <label>Dedicatoria o detalles<textarea name="detalle" rows="3" placeholder="Mensaje, decoración, alergias..."></textarea></label>
-      <button class="btn btn-red" type="submit">Pedir presupuesto por WhatsApp</button>
+      <button class="btn btn-red" type="submit">Pedir presupuesto</button>
       <p class="err" id="encErr" role="alert" hidden></p>
     </form>
   </div>
@@ -110,30 +125,30 @@
 
 <section class="sec" id="proceso">
   <header class="sec-head rv">
-    <p class="eyebrow dark">Cómo pedir</p>
-    <h2>Simple, como tiene que ser</h2>
+    <p class="eyebrow dark"><span>05</span>Cómo pedir</p>
+    <h2>Simple, <em>como tiene que ser</em></h2>
   </header>
   <ol class="steps">
-    <li class="rv"><span>01</span><h3>Elegí</h3><p>Armá tu pedido desde la carta o contanos tu idea en el formulario.</p></li>
-    <li class="rv"><span>02</span><h3>Confirmá por WhatsApp</h3><p>Te llega el pedido listo, lo confirmamos y coordinamos fecha y pago.</p></li>
-    <li class="rv"><span>03</span><h3>Recibilo fresco</h3><p>Retirás o te lo llevamos. Todo se hornea para tu fecha, nada es stock.</p></li>
+    <li class="rv"><span>I</span><h3>Elegí</h3><p>Armá tu pedido desde la carta o contanos tu idea en el formulario.</p></li>
+    <li class="rv"><span>II</span><h3>Confirmá por WhatsApp</h3><p>Te llega el pedido listo, lo confirmamos y coordinamos fecha y pago.</p></li>
+    <li class="rv"><span>III</span><h3>Recibilo fresco</h3><p>Retirás o te lo llevamos. Todo se hornea para tu fecha.</p></li>
   </ol>
 </section>
 
-<section class="sec sec-paper" id="galeria">
+<section class="sec sec-cream" id="galeria">
   <header class="sec-head rv">
-    <p class="eyebrow dark">Del horno a tu mesa</p>
-    <h2>Un vistazo al taller</h2>
+    <p class="eyebrow dark"><span>06</span>Del horno a tu mesa</p>
+    <h2>Un vistazo <em>al taller</em></h2>
   </header>
   <div class="gallery" id="gallery"></div>
-  <p class="center"><a class="btn btn-ghost-dark" id="igLink" href="#" target="_blank" rel="noopener">Ver más en Instagram</a></p>
+  <p class="center"><a class="btn btn-ghost-dark" id="igLink" href="#" target="_blank" rel="noopener">Seguinos en Instagram</a></p>
 </section>
 
 <section class="sec" id="contacto">
   <div class="split">
     <header class="sec-head left rv">
-      <p class="eyebrow dark">Contacto y entregas</p>
-      <h2>Estamos en Longchamps</h2>
+      <p class="eyebrow dark"><span>07</span>Contacto y entregas</p>
+      <h2>Estamos <em>en Longchamps</em></h2>
       <ul class="info">
         <li><b>Envío gratis</b> por la zona de Longchamps.</li>
         <li><b>Provincia y CABA</b> con recargo, se coordina por WhatsApp.</li>
@@ -148,9 +163,10 @@
 </main>
 
 <footer class="foot">
-  <img src="img/logo.webp" width="64" height="64" alt="" loading="lazy">
-  <p class="foot-name">Bárbara Regazzoni · Pastelería de autor</p>
-  <p><a id="igFoot" href="#" target="_blank" rel="noopener"></a> · Longchamps, Buenos Aires</p>
+  <img src="img/logo.webp" width="88" height="88" alt="" loading="lazy">
+  <p class="foot-name">Bárbara <em>Regazzoni</em></p>
+  <p class="foot-tag">Pastelería de autor · Longchamps, Buenos Aires</p>
+  <p><a id="igFoot" href="#" target="_blank" rel="noopener"></a></p>
   <p class="foot-small">© <span id="year"></span> · Web hecha por <a href="https://vigolowebstudio.com" target="_blank" rel="noopener">Vigolo Web Studio</a> · <a href="admin.html">Panel del dueño (demo)</a></p>
 </footer>
 
